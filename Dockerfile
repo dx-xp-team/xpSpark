@@ -2,7 +2,7 @@ FROM ubuntu:14.04
 RUN apt-get update
 RUN apt-get -y install g++-multilib
 RUN apt-get -y install python-dev
-RUN apt-get -y build-dep python-numpy python-scipy
+RUN apt-get -y build-dep python-scipy
 RUN apt-get -y install python-pip; apt-get clean all
 RUN pip install --upgrade pip numpy scipy pandas scikit-learn keras
 RUN pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp34-cp34m-linux_x86_64.whl
