@@ -1,5 +1,6 @@
 FROM ubuntu:14.04
 RUN apt-get update
+RUN apt-get -y install g++-multilib
 RUN apt-get -y install python-dev
 RUN apt-get -y install python-pip; apt-get clean all
 RUN pip install --upgrade pip numpy scipy pandas scikit-learn keras
