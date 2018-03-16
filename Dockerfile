@@ -1,8 +1,7 @@
 FROM ubuntu:14.04
 RUN apt-get update
-RUN apt-get -y install libatlas-base-dev gfortran
-RUN apt-get -y install python-dev
-RUN apt-get -y install build-essential gfortran libatlas-base-dev libatlas3gf-base libjpeg-dev libxml2-dev libfreetype6-dev libpng-dev
+RUN apt-get -y install --no-install-recommends python2.7-minimal python2.7  
+RUN apt-get -y install python-numpy python-scipy
 RUN apt-get -y install python-pip; apt-get clean all
 RUN pip install --upgrade pip scipy numpy pandas scikit-learn keras
 RUN pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp34-cp34m-linux_x86_64.whl
