@@ -1,6 +1,6 @@
 FROM ubuntu:14.04
 RUN apt-get update
-RUN apt-get -y install --no-install-recommends python2.7-minimal python2.7  
+RUN apt-get -y install --no-install-recommends python2.7-minimal python2.7 gfortran
 RUN apt-get -y install python-numpy python-scipy
 RUN apt-get -y install python-pip; apt-get clean all
 RUN pip install --upgrade pip scipy numpy pandas scikit-learn keras
