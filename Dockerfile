@@ -1,9 +1,7 @@
 FROM ubuntu:14.04
 RUN apt-get update
-RUN apt-get -y install g++-multilib
-RUN apt-get -y install python-dev build-essential libblas-dev liblapack-dev gfortran
-RUN apt-get -y build-dep python-scipy
-RUN apt-get -y install python-pip; apt-get clean all
+RUN apt-get -y install libatlas-base-dev gfortran
+RUN apt-get -y install python-dev
 RUN pip install --upgrade pip scipy numpy pandas scikit-learn keras
 RUN pip install --upgrade https://storage.googleapis.com/tensorflow/linux/cpu/tensorflow-1.6.0-cp34-cp34m-linux_x86_64.whl
 RUN apt-get -y install java-1.8.0-openjdk; apt-get clean all
