@@ -1,9 +1,12 @@
 FROM centos:7.3.1611
-RUN yum -y install epel-release; yum clean all
+RUN yum -y install epel-release gcc openssl-devel bzip2-devel make; yum clean all
 RUN yum -y install python-pip; yum clean all && pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 RUN yum -y install java-1.8.0-openjdk; yum clean all
 RUN curl -s http://apache.crihan.fr/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz | tar xz -C /opt
 RUN ln -s /opt/spark-2.3.0-bin-hadoop2.7 /opt/spark
+RUN curl -s https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz | tar xz -C /usr/src
+RUN /usr/src/Python-3.6.4/configure --enable-optimizations
+RUN make altinstall /usr/src/Python-3.6.4
 COPY aws-java-sdk-1.7.4.jar hadoop-aws-2.7.3.jar /opt/spark/jars/
 WORKDIR /opt/spark
 RUN cp /opt/spark/conf/spark-defaults.conf.template /opt/spark/conf/spark-defaults.conf
