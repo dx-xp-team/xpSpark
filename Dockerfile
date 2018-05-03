@@ -4,7 +4,7 @@ FROM ubuntu:18.04
 
 # Install Spark 2.3.0
 RUN apt-get update
-RUN apt -y install openjdk-8-jdk curl
+RUN apt -y install openjdk-8-jdk curl python-pip
 RUN curl -s http://apache.crihan.fr/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz | tar xz -C /opt
 RUN ln -s /opt/spark-2.3.0-bin-hadoop2.7 /opt/spark
 
