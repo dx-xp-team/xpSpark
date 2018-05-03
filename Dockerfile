@@ -1,17 +1,18 @@
-FROM centos:7.3.1611
-RUN yum -y install epel-release gcc openssl-devel bzip2-devel make; yum clean all
+FROM ubuntu:18.04
+#RUN yum -y install epel-release gcc openssl-devel bzip2-devel make; yum clean all
 #RUN yum -y install python-pip; yum clean all && pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 
 # Install Spark 2.3.0
-RUN yum -y install java-1.8.0-openjdk; yum clean all
+RUN apt install openjdk-8-jdk
 RUN curl -s http://apache.crihan.fr/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz | tar xz -C /opt
 RUN ln -s /opt/spark-2.3.0-bin-hadoop2.7 /opt/spark
 
 #Install Python 3.6
-RUN curl -s https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz | tar xz -C /usr/src
-RUN /usr/src/Python-3.6.4/configure --enable-optimizations
-RUN make altinstall /usr/src/Python-3.6.4
+#RUN curl -s https://www.python.org/ftp/python/3.6.4/Python-3.6.4.tgz | tar xz -C /usr/src
+#RUN /usr/src/Python-3.6.4/configure --enable-optimizations
+#RUN make altinstall /usr/src/Python-3.6.4
 
+#RUN python3.6 -m pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 RUN python3.6 -m pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 
 # Setup s3 communication
