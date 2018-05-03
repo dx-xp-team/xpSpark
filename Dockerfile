@@ -3,7 +3,8 @@ FROM ubuntu:18.04
 #RUN yum -y install python-pip; yum clean all && pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 
 # Install Spark 2.3.0
-RUN apt install openjdk-8-jdk
+RUN apt-get update
+RUN apt -y install openjdk-8-jdk curl
 RUN curl -s http://apache.crihan.fr/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz | tar xz -C /opt
 RUN ln -s /opt/spark-2.3.0-bin-hadoop2.7 /opt/spark
 
@@ -13,7 +14,7 @@ RUN ln -s /opt/spark-2.3.0-bin-hadoop2.7 /opt/spark
 #RUN make altinstall /usr/src/Python-3.6.4
 
 #RUN python3.6 -m pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
-RUN python3.6 -m pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
+RUN pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 
 # Setup s3 communication
 COPY aws-java-sdk-1.7.4.jar hadoop-aws-2.7.3.jar /opt/spark/jars/
