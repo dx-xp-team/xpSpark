@@ -2,6 +2,11 @@ FROM python:3
 #RUN yum -y install epel-release gcc openssl-devel bzip2-devel make; yum clean all
 #RUN yum -y install python-pip; yum clean all && pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 
+# Install jdk 8
+RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
+RUN sudo apt-get update
+RUN sudo apt-get install -t jessie-backports openjdk-8-jre-headless
+
 ## Install Spark 2.3.0
 #RUN apt-get update
 #RUN apt -y install openjdk-8-jdk curl python-pip
@@ -16,8 +21,8 @@ FROM python:3
 ##RUN python3.6 -m pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 #RUN pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 
-# Setup s3 communication
-COPY aws-java-sdk-1.7.4.jar hadoop-aws-2.7.3.jar /opt/spark/jars/
+## Setup s3 communication
+#COPY aws-java-sdk-1.7.4.jar hadoop-aws-2.7.3.jar /opt/spark/jars/
 
 ##Configure Spark
 #WORKDIR /opt/spark
