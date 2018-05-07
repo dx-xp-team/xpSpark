@@ -1,4 +1,4 @@
-FROM ubuntu:18.04
+FROM python:3
 #RUN yum -y install epel-release gcc openssl-devel bzip2-devel make; yum clean all
 #RUN yum -y install python-pip; yum clean all && pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 
