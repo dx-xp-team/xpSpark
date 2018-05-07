@@ -5,7 +5,7 @@ FROM python:3
 # Install jdk 8
 RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
 RUN apt-get update
-RUN apt-get install -t jessie-backports openjdk-8-jre-headless
+RUN apt-get -y install -t jessie-backports openjdk-8-jre-headless
 
 ## Install Spark 2.3.0
 #RUN apt-get update
