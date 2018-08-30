@@ -9,8 +9,8 @@ RUN apt-get -y install -t jessie-backports openjdk-8-jre-headless
 
 ## Install Spark 2.3.0
 RUN apt-get -y install curl python-pip
-RUN curl -s http://apache.crihan.fr/dist/spark/spark-2.3.0/spark-2.3.0-bin-hadoop2.7.tgz | tar xz -C /opt
-RUN ln -s /opt/spark-2.3.0-bin-hadoop2.7 /opt/spark
+RUN curl -s http://apache.claz.org/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz | tar xz -C /opt
+RUN ln -s /opt/spark-2.3.1-bin-hadoop2.7 /opt/spark
 
 RUN pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 
