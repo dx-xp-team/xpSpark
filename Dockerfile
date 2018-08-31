@@ -8,7 +8,7 @@ RUN apt-get update
 RUN apt-get -y install -t jessie-backports openjdk-8-jre-headless
 
 ## Install Spark 2.3.0
-RUN apt-get -y install curl python-pip
+RUN apt-get -y install curl python3-pip
 RUN wget -qO- http://mirrors.gigenet.com/apache/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz  | tar xvz -C /opt
 RUN ln -s /opt/spark-2.3.1-bin-hadoop2.7 /opt/spark
 
