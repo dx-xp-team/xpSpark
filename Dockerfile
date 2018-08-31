@@ -1,4 +1,4 @@
-FROM python:3
+FROM python:3.6
 #RUN yum -y install epel-release gcc openssl-devel bzip2-devel make; yum clean all
 #RUN yum -y install python-pip; yum clean all && pip install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
 
