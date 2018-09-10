@@ -12,7 +12,7 @@ RUN apt-get -y install curl python3-pip
 RUN wget -qO- http://mirrors.gigenet.com/apache/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz  | tar xvz -C /opt
 RUN ln -s /opt/spark-2.3.1-bin-hadoop2.7 /opt/spark
 
-RUN pip3 install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras
+RUN pip3 install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras lxml
 
 ## Setup s3 communication
 COPY aws-java-sdk-1.7.4.jar hadoop-aws-2.7.3.jar /opt/spark/jars/
