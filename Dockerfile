@@ -5,14 +5,14 @@ FROM python:3.6
 # Install jdk 8
 RUN echo "deb http://http.debian.net/debian jessie-backports main" > /etc/apt/sources.list.d/jessie-backports.list
 RUN apt-get update
-RUN apt-get -y install -t jessie-backports openjdk-8-jre-headless
+RUN apt-get -y install -t jessie-backports openjdk-8-jre-headless 
 
 ## Install Spark 2.3.0
-RUN apt-get -y install curl python3-pip vim
+RUN apt-get -y install curl python3-pip vim libcr-dev mpich mpich-doc
 RUN wget -qO- http://mirrors.gigenet.com/apache/spark/spark-2.3.1/spark-2.3.1-bin-hadoop2.7.tgz  | tar xvz -C /opt
 RUN ln -s /opt/spark-2.3.1-bin-hadoop2.7 /opt/spark
 
-RUN pip3 install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras lxml
+RUN pip3 install --upgrade pip numpy scipy pandas scikit-learn tensorflow keras lxml horovod
 
 ## Setup s3 communication
 COPY aws-java-sdk-1.7.4.jar hadoop-aws-2.7.3.jar /opt/spark/jars/
