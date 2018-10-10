@@ -26,6 +26,3 @@ RUN echo 'spark.ui.reverseProxy true' >> /opt/spark/conf/spark-defaults.conf
 ##Configure s3 communication
 RUN echo 'spark.hadoop.fs.s3a.proxy.host=proxy.lbs.alcatel-lucent.com' >> /opt/spark/conf/spark-defaults.conf
 RUN echo 'spark.hadoop.fs.s3a.proxy.port=8000' >> /opt/spark/conf/spark-defaults.conf
-
-# Add https://spark-packages.org/package/databricks/spark-deep-learning
-RUN echo 'spark.jars.packages=databricks:spark-deep-learning:1.2.0-spark2.3-s_2.11' >> /opt/spark/conf/spark-defaults.conf
